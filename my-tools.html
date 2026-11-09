@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b10">
+  <meta name="description" content="Osobní výběr nástrojů, které používám.">
+  <title>Nástroje, které používám | ForgeNet</title>
+  <link rel="stylesheet" href="ForgeNet.css">
+  <script>
+    const savedTheme = localStorage.getItem("forgenet-theme");
+    if (savedTheme === "light" || savedTheme === "dark") {
+      document.documentElement.dataset.theme = savedTheme;
+    }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="software.html#domu" aria-label="ForgeNet — úvodní stránka" data-i18n-aria-label="brandLabel">ForgeNet</a>
+      <details class="site-menu">
+        <summary aria-label="Menu" data-i18n-aria-label="menu">
+          <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="visually-hidden" data-i18n="menu">Menu</span>
+        </summary>
+        <div class="menu-panel">
+          <button class="theme-toggle" type="button" aria-pressed="false">Světlý režim</button>
+          <label class="language-picker">
+            <span data-i18n="language">Jazyk</span>
+            <select class="language-toggle" aria-label="Jazyk" data-i18n-aria-label="language">
+              <option value="cs">Čeština</option>
+              <option value="en">English</option>
+              <option value="de">Deutsch</option>
+            </select>
+          </label>
+        </div>
+      </details>
+    </div>
+  </header>
+  <main class="my-tools-page">
+    <div class="container">
+      <a class="my-tools-back" href="software.html#domu" data-i18n="backHome">← Zpět na hlavní stránku</a>
+      <h1 data-i18n="myToolsTitle">Nástroje, které používám</h1>
+      <p class="software-intro" data-i18n="myToolsIntro">Můj osobní výběr programů a služeb.</p>
+    </div>
+  </main>
+  <script>
+    const root = document.documentElement;
+    const themeToggle = document.querySelector(".theme-toggle");
+    const languageToggle = document.querySelector(".language-toggle");
+    const translations = {
+      cs: {
+        brandLabel: "ForgeNet — úvodní stránka",
+        menu: "Menu",
+        language: "Jazyk",
+        lightMode: "Světlý režim",
+        darkMode: "Tmavý režim",
+        switchToLight: "Přepnout na světlý režim",
+        switchToDark: "Přepnout na tmavý režim",
+        backHome: "← Zpět na hlavní stránku",
+        myToolsTitle: "Nástroje, které používám",
+        myToolsIntro: "Můj osobní výběr programů a služeb.",
+        description: "Osobní výběr nástrojů, které používám."
+      },
+      en: {
+        brandLabel: "ForgeNet — home page",
+        menu: "Menu",
+        language: "Language",
+        lightMode: "Light mode",
+        darkMode: "Dark mode",
+        switchToLight: "Switch to light mode",
+        switchToDark: "Switch to dark mode",
+        backHome: "← Back to home",
+        myToolsTitle: "Tools I use",
+        myToolsIntro: "My personal selection of software and services.",
+        description: "A personal selection of tools I use."
+      },
+      de: {
+        brandLabel: "ForgeNet — Startseite",
+        menu: "Menü",
+        language: "Sprache",
+        lightMode: "Heller Modus",
+        darkMode: "Dunkler Modus",
+        switchToLight: "Zum hellen Modus wechseln",
+        switchToDark: "Zum dunklen Modus wechseln",
+        backHome: "← Zurück zur Startseite",
+        myToolsTitle: "Tools, die ich nutze",
+        myToolsIntro: "Meine persönliche Auswahl an Software und Diensten.",
+        description: "Eine persönliche Auswahl der Tools, die ich nutze."
+      }
+    };
+
+    function updateThemeToggle() {
+      const isLight = root.dataset.theme === "light";
+      const text = translations[languageToggle.value];
+      themeToggle.textContent = isLight ? text.darkMode : text.lightMode;
+      themeToggle.setAttribute("aria-label", isLight ? text.switchToDark : text.switchToLight);
+      themeToggle.setAttribute("aria-pressed", String(isLight));
+    }
+
+    function updateLanguage(language) {
+      const text = translations[language];
+      document.documentElement.lang = language;
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        element.textContent = text[element.dataset.i18n];
+      });
+      document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+        element.setAttribute("aria-label", text[element.dataset.i18nAriaLabel]);
+      });
+      document.querySelector('meta[name="description"]').content = text.description;
+      languageToggle.value = language;
+      localStorage.setItem("forgenet-language", language);
+      updateThemeToggle();
+    }
+
+    const savedLanguage = localStorage.getItem("forgenet-language");
+    updateLanguage(Object.prototype.hasOwnProperty.call(translations, savedLanguage) ? savedLanguage : "cs");
+    languageToggle.addEventListener("change", () => updateLanguage(languageToggle.value));
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = root.dataset.theme === "light" ? "dark" : "light";
+      root.dataset.theme = nextTheme;
+      localStorage.setItem("forgenet-theme", nextTheme);
+      updateThemeToggle();
+    });
+  </script>
+</body>
+</html>

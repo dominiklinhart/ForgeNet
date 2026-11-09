@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b10">
+  <meta name="description" content="ForgeNet je můj webový projekt o softwaru. Objev nástroje pro vývoj, tvorbu, produktivitu i zábavu.">
+  <title>ForgeNet | Software a nástroje</title>
+  <link rel="stylesheet" href="ForgeNet.css">
+  <script>
+    const savedTheme = localStorage.getItem("forgenet-theme");
+    if (savedTheme === "light" || savedTheme === "dark") {
+      document.documentElement.dataset.theme = savedTheme;
+    }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#domu" aria-label="ForgeNet — úvodní stránka" data-i18n-aria-label="brandLabel">ForgeNet</a>
+      <div class="topbar-actions">
+        <details class="news-feed news-feed-toolbar" id="novinky">
+          <summary aria-label="Novinky: Bezplatný software od ArtCraft a jedna další novinka" data-i18n-aria-label="newsSummary">
+            <svg class="news-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.75h14a1.25 1.25 0 0 1 1.25 1.25v12A1.25 1.25 0 0 1 19 19.25H5A2.25 2.25 0 0 1 2.75 17V7A2.25 2.25 0 0 1 5 4.75Z"/><path d="M7.5 8h9M7.5 11h9M7.5 14h5"/></svg>
+            <span class="news-indicator" aria-hidden="true"></span>
+            <span class="visually-hidden" data-i18n="news">Novinky</span>
+          </summary>
+          <div class="news-list">
+            <h2 class="news-panel-heading" data-i18n="news">Novinky</h2>
+            <article class="news-item">
+              <strong data-i18n="headline">Bezplatný software od ArtCraft</strong>
+              <p data-i18n="newsDescription">Software jako Adobe — více informací již brzy.</p>
+            </article>
+            <article class="news-item">
+              <strong data-i18n="secondHeadline">Emulace her na PC už za pár dní</strong>
+              <p data-i18n="secondDescription">V poslední době AI a hackeři ovládli herní průmysl.</p>
+            </article>
+          </div>
+        </details>
+        <details class="site-menu">
+          <summary aria-label="Menu" data-i18n-aria-label="menu">
+            <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="visually-hidden" data-i18n="menu">Menu</span>
+          </summary>
+          <div class="menu-panel">
+            <button class="theme-toggle" type="button" aria-pressed="false">Světlý režim</button>
+            <label class="language-picker">
+              <span data-i18n="language">Jazyk</span>
+              <select class="language-toggle" aria-label="Jazyk" data-i18n-aria-label="language">
+                <option value="cs">Čeština</option>
+                <option value="en">English</option>
+                <option value="de">Deutsch</option>
+              </select>
+            </label>
+          </div>
+        </details>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="home-title">ForgeNet</h1>
+        <p class="home-subtitle" data-i18n="homeSubtitle">Nástroje pro práci, tvorbu i zábavu. Objev užitečný software a online služby přehledně na jednom místě.</p>
+        <aside class="welcome-info is-expanded" id="domu">
+          <div class="welcome-info-heading">
+            <span class="welcome-info-icon" aria-hidden="true">!</span>
+            <h2 data-i18n="welcomeTitle">Vítej na mé webové stránce</h2>
+            <button class="welcome-info-toggle" type="button" aria-expanded="true" aria-controls="welcome-message">
+              <span class="visually-hidden" data-i18n="welcomeToggle">Sbalit uvítací okénko</span>
+              <span class="welcome-info-chevron" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="welcome-info-content" id="welcome-message">
+            <p data-i18n="welcomeMessage">Tady najdeš výběr užitečných programů a nástrojů pro tvoření, práci i zábavu. Rozhlédni se a vyber si téma, které tě zajímá.</p>
+          </div>
+        </aside>
+        <a class="my-tools-card" href="my-tools.html">
+          <span class="my-tools-card-copy">
+            <strong data-i18n="myToolsCardTitle">Nástroje, které používám</strong>
+            <span data-i18n="myToolsCardDescription">Můj osobní výběr oblíbených programů a služeb.</span>
+          </span>
+          <span class="my-tools-card-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+    <section class="software-hero" id="software">
+      <div class="container">
+        <div class="globe-intro" id="bozi-oko">
+          <h1 data-i18n="title">Boží oko</h1>
+        </div>
+        <div class="globe-stage" role="group" aria-label="Témata nástrojů" data-i18n-aria-label="categories">
+          <canvas class="globe-canvas" aria-hidden="true"></canvas>
+          <a class="globe-topic" data-topic="ai" href="#ai"><span class="globe-topic-dot"></span><span data-i18n="ai">AI nástroje</span></a>
+          <a class="globe-topic" data-topic="developers" href="#vyvoj"><span class="globe-topic-dot"></span><span data-i18n="developersShort">Vývoj a tvorba</span></a>
+          <a class="globe-topic" data-topic="graphics" href="#grafika"><span class="globe-topic-dot"></span><span data-i18n="graphics">Grafika</span></a>
+          <a class="globe-topic" data-topic="productivity" href="#produktivita"><span class="globe-topic-dot"></span><span data-i18n="productivity">Produktivita</span></a>
+          <a class="globe-topic" data-topic="collaboration" href="#spoluprace"><span class="globe-topic-dot"></span><span data-i18n="collaborationShort">Týmy a spolupráce</span></a>
+          <a class="globe-topic" data-topic="gaming" href="#hry"><span class="globe-topic-dot"></span><span data-i18n="gaming">Herní nástroje</span></a>
+          <a class="globe-topic" data-topic="media" href="#media"><span class="globe-topic-dot"></span><span data-i18n="mediaShort">Video a audio</span></a>
+          <a class="globe-topic" data-topic="security" href="#bezpecnost"><span class="globe-topic-dot"></span><span data-i18n="securityShort">Bezpečnost</span></a>
+          <a class="globe-topic" data-topic="cloud" href="#cloud"><span class="globe-topic-dot"></span><span data-i18n="cloudShort">Cloud</span></a>
+          <a class="globe-topic" data-topic="browsers" href="#prohlizece"><span class="globe-topic-dot"></span><span data-i18n="browserShort">Prohlížeče</span></a>
+          <p class="globe-hint" data-i18n="globeHint">Tažením otáčej · kliknutím vyber téma</p>
+        </div>
+        <section class="software-category" id="ai">
+          <div class="category-heading">
+            <span class="category-icon" aria-hidden="true">✦</span>
+            <div>
+              <h2 data-i18n="ai">AI nástroje</h2>
+              <p data-i18n="aiIntro">Asistenti, generátory a další praktické nástroje využívající umělou inteligenci.</p>
+            </div>
+          </div>
+          <div class="software-grid">
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">C</span><span class="software-type" data-i18n="aiAssistant">AI asistent</span></div>
+              <h3>ChatGPT</h3>
+              <p data-i18n="chatgptDescription">AI asistent pro hledání informací, psaní, učení a práci s nápady.</p>
+              <a class="software-link" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">C</span><span class="software-type" data-i18n="aiAssistant">AI asistent</span></div>
+              <h3>Claude</h3>
+              <p data-i18n="claudeDescription">AI asistent pro práci s textem, analýzu dokumentů a řešení úkolů.</p>
+              <a class="software-link" href="https://claude.ai/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">G</span><span class="software-type" data-i18n="aiAssistant">AI asistent</span></div>
+              <h3>Google Gemini</h3>
+              <p data-i18n="geminiDescription">AI asistent od Googlu pro otázky, psaní a další každodenní úkoly.</p>
+              <a class="software-link" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </section>
+
+        <section class="software-category" id="vyvoj">
+          <div class="category-heading">
+            <span class="category-icon" aria-hidden="true">&lt;/&gt;</span>
+            <div>
+              <h2 data-i18n="developers">Nástroje pro vývojáře a tvůrce</h2>
+              <p data-i18n="developersIntro">Software pro vývoj, programování a tvorbu webových projektů.</p>
+            </div>
+          </div>
+          <div class="software-grid">
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-vscode">V</span><span class="software-type" data-i18n="codeEditor">Editor kódu</span></div>
+              <h3>Visual Studio Code</h3>
+              <p data-i18n="vscodeDescription">Bezplatný editor pro HTML, CSS i JavaScript. Lze ho rozšířit o doplňky, které usnadní práci.</p>
+              <a class="software-link" href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-codepen">C</span><span class="software-type" data-i18n="onlineEditor">Online editor</span></div>
+              <h3>CodePen</h3>
+              <p data-i18n="codepenDescription">Webové prostředí, kde můžeš rychle zkoušet HTML, CSS a JavaScript přímo v prohlížeči.</p>
+              <a class="software-link" href="https://codepen.io/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">G</span><span class="software-type" data-i18n="codeHosting">Hosting kódu</span></div>
+              <h3>GitHub</h3>
+              <p data-i18n="githubDescription">Platforma pro ukládání projektů, správu verzí a spolupráci na kódu.</p>
+              <a class="software-link" href="https://github.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">G</span><span class="software-type" data-i18n="gitClient">Git klient</span></div>
+              <h3>GitHub Desktop</h3>
+              <p data-i18n="githubDesktopDescription">Grafická aplikace pro správu Git projektů a práci s GitHubem.</p>
+              <a class="software-link" href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">G</span><span class="software-type" data-i18n="versionControl">Správa verzí</span></div>
+              <h3>Git</h3>
+              <p data-i18n="gitDescription">Bezplatný systém pro sledování změn v souborech a spolupráci na projektech.</p>
+              <a class="software-link" href="https://git-scm.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </section>
+
+        <section class="software-category" id="grafika">
+          <div class="category-heading">
+            <span class="category-icon" aria-hidden="true">✦</span>
+            <div>
+              <h2 data-i18n="graphics">Grafické nástroje</h2>
+              <p data-i18n="graphicsIntro">Programy pro úpravu obrázků, digitální kreslení, vektorovou grafiku a 3D tvorbu.</p>
+            </div>
+          </div>
+          <div class="software-grid">
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-gimp">G</span><span class="software-type" data-i18n="imageEditor">Úprava obrázků</span></div>
+              <h3>GIMP</h3>
+              <p data-i18n="gimpDescription">Výkonný editor pro retušování fotek, práci s vrstvami a tvorbu grafiky. Je zdarma a open source.</p>
+              <a class="software-link" href="https://www.gimp.org/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-krita">K</span><span class="software-type" data-i18n="digitalPainting">Digitální kreslení</span></div>
+              <h3>Krita</h3>
+              <p data-i18n="kritaDescription">Oblíbený nástroj pro digitální malbu, ilustrace a komiksy. Nabízí štětce, vrstvy i animaci.</p>
+              <a class="software-link" href="https://krita.org/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-inkscape">I</span><span class="software-type" data-i18n="vectorGraphics">Vektorová grafika</span></div>
+              <h3>Inkscape</h3>
+              <p data-i18n="inkscapeDescription">Bezplatný open-source editor pro vektorové ilustrace, loga a ikony.</p>
+              <a class="software-link" href="https://inkscape.org/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-figma">F</span><span class="software-type" data-i18n="interfaceDesign">Návrh rozhraní</span></div>
+              <h3>Figma</h3>
+              <p data-i18n="figmaDescription">Nástroj pro návrh webových a mobilních rozhraní a tvorbu prototypů.</p>
+              <a class="software-link" href="https://www.figma.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-blender">B</span><span class="software-type" data-i18n="3d">3D tvorba</span></div>
+              <h3>Blender</h3>
+              <p data-i18n="blenderDescription">Kompletní sada pro 3D modelování, animaci, rendering i tvorbu videoherních scén.</p>
+              <a class="software-link" href="https://www.blender.org/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </section>
+
+        <section class="software-category" id="produktivita">
+          <div class="category-heading">
+            <span class="category-icon" aria-hidden="true">◷</span>
+            <div>
+              <h2 data-i18n="productivity">Produktivita</h2>
+              <p data-i18n="productivityIntro">Aplikace pro soustředění, plánování a každodenní práci.</p>
+            </div>
+          </div>
+          <div class="software-grid">
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">N</span><span class="software-type" data-i18n="workspace">Pracovní prostor</span></div>
+              <h3>Notion</h3>
+              <p data-i18n="notionDescription">Pracovní prostor pro poznámky, dokumenty, úkoly a osobní projekty.</p>
+              <a class="software-link" href="https://www.notion.so/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">O</span><span class="software-type" data-i18n="noteTaking">Poznámky</span></div>
+              <h3>Obsidian</h3>
+              <p data-i18n="obsidianDescription">Aplikace pro osobní poznámky, které lze propojovat do přehledné znalostní báze.</p>
+              <a class="software-link" href="https://obsidian.md/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">T</span><span class="software-type" data-i18n="taskManagement">Správa úkolů</span></div>
+              <h3>Todoist</h3>
+              <p data-i18n="todoistDescription">Správce úkolů pro plánování každodenních povinností a projektů.</p>
+              <a class="software-link" href="https://todoist.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </section>
+
+        <section class="software-category" id="spoluprace">
+          <div class="category-heading">
+            <span class="category-icon" aria-hidden="true">◎</span>
+            <div>
+              <h2 data-i18n="collaboration">Organizace a týmová spolupráce</h2>
+              <p data-i18n="collaborationIntro">Nástroje pro organizaci práce, komunikaci a společné projekty.</p>
+            </div>
+          </div>
+          <div class="software-grid">
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">S</span><span class="software-type" data-i18n="teamChat">Týmový chat</span></div>
+              <h3>Slack</h3>
+              <p data-i18n="slackDescription">Komunikační platforma pro týmové kanály, zprávy a sdílení souborů.</p>
+              <a class="software-link" href="https://slack.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">D</span><span class="software-type" data-i18n="voiceAndText">Hlas a text</span></div>
+              <h3>Discord</h3>
+              <p data-i18n="discordDescription">Prostory pro komunity a týmy s textovými, hlasovými a video kanály.</p>
+              <a class="software-link" href="https://discord.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">T</span><span class="software-type" data-i18n="projectManagement">Plánování projektů</span></div>
+              <h3>Trello</h3>
+              <p data-i18n="trelloDescription">Vizuální nástroj pro organizaci úkolů a týmových projektů pomocí nástěnek.</p>
+              <a class="software-link" href="https://trello.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </section>
+
+        <section class="software-category" id="hry">
+          <div class="category-heading">
+            <span class="category-icon" aria-hidden="true">⌁</span>
+            <div>
+              <h2 data-i18n="gaming">Herní nástroje</h2>
+              <p data-i18n="gamingIntro">Software pro hraní, tvorbu her a herní komunity.</p>
+            </div>
+          </div>
+          <div class="software-grid">
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">S</span><span class="software-type" data-i18n="gameStore">Herní obchod</span></div>
+              <h3>Steam</h3>
+              <p data-i18n="steamDescription">Platforma pro nákup, správu a hraní počítačových her.</p>
+              <a class="software-link" href="https://store.steampowered.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">i</span><span class="software-type" data-i18n="indieGames">Nezávislé hry</span></div>
+              <h3>itch.io</h3>
+              <p data-i18n="itchioDescription">Platforma pro objevování a stahování nezávislých her a projektů.</p>
+              <a class="software-link" href="https://itch.io/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">G</span><span class="software-type" data-i18n="gameEngine">Herní engine</span></div>
+              <h3>Godot Engine</h3>
+              <p data-i18n="godotDescription">Bezplatný open-source engine pro tvorbu 2D a 3D her.</p>
+              <a class="software-link" href="https://godotengine.org/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </section>
+
+        <section class="software-category" id="media">
+          <div class="category-heading">
+            <span class="category-icon" aria-hidden="true">♫</span>
+            <div>
+              <h2 data-i18n="media">Video a audio tvorba</h2>
+              <p data-i18n="mediaIntro">Nástroje pro střih videa, záznam obrazovky, živé vysílání a úpravu zvuku.</p>
+            </div>
+          </div>
+          <div class="software-grid">
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-resolve">D</span><span class="software-type" data-i18n="videoEditing">Střih videa</span></div>
+              <h3>DaVinci Resolve</h3>
+              <p data-i18n="resolveDescription">Pokročilý nástroj pro střih videa, barevné korekce a zpracování zvuku.</p>
+              <a class="software-link" href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-audacity">A</span><span class="software-type" data-i18n="audioEditing">Úprava zvuku</span></div>
+              <h3>Audacity</h3>
+              <p data-i18n="audacityDescription">Bezplatný open-source editor pro nahrávání a úpravu zvuku.</p>
+              <a class="software-link" href="https://www.audacityteam.org/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-obs">O</span><span class="software-type" data-i18n="recordingStreaming">Záznam a vysílání</span></div>
+              <h3>OBS Studio</h3>
+              <p data-i18n="obsDescription">Bezplatný open-source software pro záznam obrazovky a živé vysílání.</p>
+              <a class="software-link" href="https://obsproject.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </section>
+
+        <section class="software-category" id="bezpecnost">
+          <div class="category-heading">
+            <span class="category-icon" aria-hidden="true">⌑</span>
+            <div>
+              <h2 data-i18n="security">Bezpečnost a soukromí</h2>
+              <p data-i18n="securityIntro">Nástroje pro správu hesel, ochranu připojení a soukromější prohlížení webu.</p>
+            </div>
+          </div>
+          <div class="software-grid">
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-bitwarden">B</span><span class="software-type" data-i18n="passwordManager">Správce hesel</span></div>
+              <h3>Bitwarden</h3>
+              <p data-i18n="bitwardenDescription">Správce hesel pro bezpečné ukládání a synchronizaci přihlašovacích údajů.</p>
+              <a class="software-link" href="https://bitwarden.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-proton">P</span><span class="software-type" data-i18n="vpn">VPN</span></div>
+              <h3>Proton VPN</h3>
+              <p data-i18n="protonVpnDescription">VPN služba zaměřená na soukromí a ochranu internetového připojení.</p>
+              <a class="software-link" href="https://protonvpn.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </section>
+
+        <section class="software-category" id="prohlizece">
+          <div class="category-heading">
+            <span class="category-icon" aria-hidden="true">◎</span>
+            <div>
+              <h2 data-i18n="browser">Webové prohlížeče</h2>
+              <p data-i18n="browserIntro">Prohlížeče pro každodenní používání, soukromí i přizpůsobení.</p>
+            </div>
+          </div>
+          <div class="software-grid">
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">C</span><span class="software-type" data-i18n="browserType">Webový prohlížeč</span></div>
+              <h3>Google Chrome</h3>
+              <p data-i18n="chromeDescription">Populární prohlížeč od Googlu s širokou nabídkou rozšíření a synchronizací účtu.</p>
+              <a class="software-link" href="https://www.google.com/chrome/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">E</span><span class="software-type" data-i18n="browserType">Webový prohlížeč</span></div>
+              <h3>Microsoft Edge</h3>
+              <p data-i18n="edgeDescription">Prohlížeč od Microsoftu s funkcemi pro práci, čtení a synchronizaci mezi zařízeními.</p>
+              <a class="software-link" href="https://www.microsoft.com/edge" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-firefox">F</span><span class="software-type" data-i18n="browserType">Webový prohlížeč</span></div>
+              <h3>Mozilla Firefox</h3>
+              <p data-i18n="firefoxDescription">Nezávislý prohlížeč od Mozilly s funkcemi pro ochranu soukromí a přizpůsobení.</p>
+              <a class="software-link" href="https://www.mozilla.org/firefox/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">B</span><span class="software-type" data-i18n="browserType">Webový prohlížeč</span></div>
+              <h3>Brave</h3>
+              <p data-i18n="braveDescription">Prohlížeč zaměřený na soukromí s vestavěným blokováním reklam a sledovacích prvků.</p>
+              <a class="software-link" href="https://brave.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">O</span><span class="software-type" data-i18n="browserType">Webový prohlížeč</span></div>
+              <h3>Opera</h3>
+              <p data-i18n="operaDescription">Prohlížeč s vestavěnými funkcemi a možnostmi přizpůsobení pracovního prostředí.</p>
+              <a class="software-link" href="https://www.opera.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">V</span><span class="software-type" data-i18n="browserType">Webový prohlížeč</span></div>
+              <h3>Vivaldi</h3>
+              <p data-i18n="vivaldiDescription">Přizpůsobitelný prohlížeč s nástroji pro organizaci panelů a pracovních prostorů.</p>
+              <a class="software-link" href="https://vivaldi.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark">S</span><span class="software-type" data-i18n="browserType">Webový prohlížeč</span></div>
+              <h3>Safari</h3>
+              <p data-i18n="safariDescription">Prohlížeč od Applu určený pro zařízení Mac, iPhone a iPad.</p>
+              <a class="software-link" href="https://www.apple.com/safari/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </section>
+
+        <section class="software-category" id="cloud">
+          <div class="category-heading">
+            <span class="category-icon" aria-hidden="true">☁</span>
+            <div>
+              <h2 data-i18n="cloud">Cloudové služby</h2>
+              <p data-i18n="cloudIntro">Úložiště pro synchronizaci, sdílení a zálohování souborů online.</p>
+            </div>
+          </div>
+          <div class="software-grid">
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-drive">G</span><span class="software-type" data-i18n="cloudStorage">Cloudové úložiště</span></div>
+              <h3>Google Drive</h3>
+              <p data-i18n="driveDescription">Online úložiště pro soubory a spolupráci s dokumenty.</p>
+              <a class="software-link" href="https://drive.google.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-dropbox">D</span><span class="software-type" data-i18n="fileSync">Synchronizace souborů</span></div>
+              <h3>Dropbox</h3>
+              <p data-i18n="dropboxDescription">Služba pro ukládání, synchronizaci a sdílení souborů.</p>
+              <a class="software-link" href="https://www.dropbox.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="software-card">
+              <div class="software-card-top"><span class="software-mark mark-proton">P</span><span class="software-type" data-i18n="privateStorage">Soukromé úložiště</span></div>
+              <h3>Proton Drive</h3>
+              <p data-i18n="protonDriveDescription">Cloudové úložiště se zaměřením na soukromí a ochranu souborů.</p>
+              <a class="software-link" href="https://proton.me/drive" target="_blank" rel="noopener noreferrer"><span data-i18n="officialWebsite">Oficiální web</span><span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script>
+    const themeToggle = document.querySelector(".theme-toggle");
+    const languageToggle = document.querySelector(".language-toggle");
+    const translations = {
+      cs: {
+        brandLabel: "ForgeNet — úvodní stránka",
+        navigation: "Hlavní navigace",
+        home: "Domů",
+        software: "Software",
+        news: "Novinky",
+        homeSubtitle: "Nástroje pro práci, tvorbu i zábavu. Objev užitečný software a online služby přehledně na jednom místě.",
+        myToolsCardTitle: "Nástroje, které používám",
+        myToolsCardDescription: "Můj osobní výběr oblíbených programů a služeb.",
+        welcomeTitle: "Vítej na mé webové stránce",
+        welcomeMessage: "Tady najdeš výběr užitečných programů a nástrojů pro tvoření, práci i zábavu. Rozhlédni se a vyber si téma, které tě zajímá.",
+        welcomeToggle: "Sbalit uvítací okénko",
+        welcomeToggleOpen: "Rozbalit uvítací okénko",
+        newsSummary: "Novinky: Bezplatný software od ArtCraft a jedna další novinka",
+        newLabel: "Novinka",
+        headline: "Bezplatný software od ArtCraft",
+        moreNews: "+1 další",
+        newsDescription: "Software jako Adobe — více informací již brzy.",
+        secondHeadline: "Emulace her na PC už za pár dní",
+        secondDescription: "V poslední době AI a hackeři ovládli herní průmysl.",
+        language: "Jazyk",
+        lightMode: "Světlý režim",
+        darkMode: "Tmavý režim",
+        switchToLight: "Přepnout na světlý režim",
+        switchToDark: "Přepnout na tmavý režim",
+        menu: "Menu",
+        globeHint: "Tažením otáčej · kliknutím vyber téma",
+        title: "Boží oko",
+        categories: "Témata nástrojů",
+        ai: "AI nástroje",
+        developers: "Nástroje pro vývojáře a tvůrce",
+        developersShort: "Vývoj a tvorba",
+        graphics: "Grafické nástroje",
+        productivity: "Produktivita",
+        collaboration: "Organizace a týmová spolupráce",
+        collaborationShort: "Týmy",
+        gaming: "Herní nástroje",
+        media: "Video a audio tvorba",
+        mediaShort: "Video a audio",
+        security: "Bezpečnost a soukromí",
+        securityShort: "Soukromí",
+        cloud: "Cloudové služby",
+        cloudShort: "Cloud",
+        browser: "Webové prohlížeče",
+        browserShort: "Prohlížeče",
+        aiIntro: "Asistenti, generátory a další praktické nástroje využívající umělou inteligenci.",
+        developersIntro: "Software pro vývoj, programování a tvorbu webových projektů.",
+        graphicsIntro: "Programy pro úpravu obrázků, digitální kreslení, vektorovou grafiku a 3D tvorbu.",
+        productivityIntro: "Aplikace pro soustředění, plánování a každodenní práci.",
+        collaborationIntro: "Nástroje pro organizaci práce, komunikaci a společné projekty.",
+        gamingIntro: "Software pro hraní, tvorbu her a herní komunity.",
+        mediaIntro: "Nástroje pro střih videa, záznam obrazovky, živé vysílání a úpravu zvuku.",
+        securityIntro: "Nástroje pro správu hesel, ochranu připojení a soukromější prohlížení webu.",
+        cloudIntro: "Úložiště pro synchronizaci, sdílení a zálohování souborů online.",
+        browserIntro: "Prohlížeče pro každodenní používání, soukromí i přizpůsobení.",
+        browserType: "Webový prohlížeč",
+        chromeDescription: "Populární prohlížeč od Googlu s širokou nabídkou rozšíření a synchronizací účtu.",
+        edgeDescription: "Prohlížeč od Microsoftu s funkcemi pro práci, čtení a synchronizaci mezi zařízeními.",
+        firefoxDescription: "Nezávislý prohlížeč od Mozilly s funkcemi pro ochranu soukromí a přizpůsobení.",
+        braveDescription: "Prohlížeč zaměřený na soukromí s vestavěným blokováním reklam a sledovacích prvků.",
+        operaDescription: "Prohlížeč s vestavěnými funkcemi a možnostmi přizpůsobení pracovního prostředí.",
+        vivaldiDescription: "Přizpůsobitelný prohlížeč s nástroji pro organizaci panelů a pracovních prostorů.",
+        safariDescription: "Prohlížeč od Applu určený pro zařízení Mac, iPhone a iPad.",
+        aiAssistant: "AI asistent",
+        chatgptDescription: "AI asistent pro hledání informací, psaní, učení a práci s nápady.",
+        claudeDescription: "AI asistent pro práci s textem, analýzu dokumentů a řešení úkolů.",
+        geminiDescription: "AI asistent od Googlu pro otázky, psaní a další každodenní úkoly.",
+        codeHosting: "Hosting kódu",
+        gitClient: "Git klient",
+        versionControl: "Správa verzí",
+        githubDescription: "Platforma pro ukládání projektů, správu verzí a spolupráci na kódu.",
+        githubDesktopDescription: "Grafická aplikace pro správu Git projektů a práci s GitHubem.",
+        gitDescription: "Bezplatný systém pro sledování změn v souborech a spolupráci na projektech.",
+        workspace: "Pracovní prostor",
+        noteTaking: "Poznámky",
+        taskManagement: "Správa úkolů",
+        notionDescription: "Pracovní prostor pro poznámky, dokumenty, úkoly a osobní projekty.",
+        obsidianDescription: "Aplikace pro osobní poznámky, které lze propojovat do přehledné znalostní báze.",
+        todoistDescription: "Správce úkolů pro plánování každodenních povinností a projektů.",
+        teamChat: "Týmový chat",
+        voiceAndText: "Hlas a text",
+        projectManagement: "Plánování projektů",
+        slackDescription: "Komunikační platforma pro týmové kanály, zprávy a sdílení souborů.",
+        discordDescription: "Prostory pro komunity a týmy s textovými, hlasovými a video kanály.",
+        trelloDescription: "Vizuální nástroj pro organizaci úkolů a týmových projektů pomocí nástěnek.",
+        gameStore: "Herní obchod",
+        indieGames: "Nezávislé hry",
+        gameEngine: "Herní engine",
+        steamDescription: "Platforma pro nákup, správu a hraní počítačových her.",
+        itchioDescription: "Platforma pro objevování a stahování nezávislých her a projektů.",
+        godotDescription: "Bezplatný open-source engine pro tvorbu 2D a 3D her.",
+        imageEditor: "Úprava obrázků",
+        digitalPainting: "Digitální kreslení",
+        "3d": "3D tvorba",
+        gimpDescription: "Výkonný editor pro retušování fotek, práci s vrstvami a tvorbu grafiky. Je zdarma a open source.",
+        kritaDescription: "Oblíbený nástroj pro digitální malbu, ilustrace a komiksy. Nabízí štětce, vrstvy i animaci.",
+        blenderDescription: "Kompletní sada pro 3D modelování, animaci, rendering i tvorbu videoherních scén.",
+        vectorGraphics: "Vektorová grafika",
+        inkscapeDescription: "Bezplatný open-source editor pro vektorové ilustrace, loga a ikony.",
+        interfaceDesign: "Návrh rozhraní",
+        figmaDescription: "Nástroj pro návrh webových a mobilních rozhraní a tvorbu prototypů.",
+        videoEditing: "Střih videa",
+        resolveDescription: "Pokročilý nástroj pro střih videa, barevné korekce a zpracování zvuku.",
+        audioEditing: "Úprava zvuku",
+        audacityDescription: "Bezplatný open-source editor pro nahrávání a úpravu zvuku.",
+        recordingStreaming: "Záznam a vysílání",
+        obsDescription: "Bezplatný open-source software pro záznam obrazovky a živé vysílání.",
+        passwordManager: "Správce hesel",
+        bitwardenDescription: "Správce hesel pro bezpečné ukládání a synchronizaci přihlašovacích údajů.",
+        vpn: "VPN",
+        protonVpnDescription: "VPN služba zaměřená na soukromí a ochranu internetového připojení.",
+        cloudStorage: "Cloudové úložiště",
+        driveDescription: "Online úložiště pro soubory a spolupráci s dokumenty.",
+        fileSync: "Synchronizace souborů",
+        dropboxDescription: "Služba pro ukládání, synchronizaci a sdílení souborů.",
+        privateStorage: "Soukromé úložiště",
+        protonDriveDescription: "Cloudové úložiště se zaměřením na soukromí a ochranu souborů.",
+        codeEditor: "Editor kódu",
+        onlineEditor: "Online editor",
+        vscodeDescription: "Bezplatný editor pro HTML, CSS i JavaScript. Lze ho rozšířit o doplňky, které usnadní práci.",
+        codepenDescription: "Webové prostředí, kde můžeš rychle zkoušet HTML, CSS a JavaScript přímo v prohlížeči.",
+        officialWebsite: "Oficiální web",
+        description: "ForgeNet je můj webový projekt o softwaru. Objev nástroje pro vývoj, tvorbu, produktivitu i zábavu."
+      },
+      en: {
+        brandLabel: "ForgeNet — home page",
+        navigation: "Main navigation",
+        home: "Home",
+        software: "Software",
+        news: "News",
+        homeSubtitle: "Tools for work, creativity, and fun. Discover useful software and online services, all in one place.",
+        myToolsCardTitle: "Tools I use",
+        myToolsCardDescription: "My personal selection of favorite software and services.",
+        welcomeTitle: "Welcome to my website",
+        welcomeMessage: "Here you’ll find useful software and tools for creating, working, and having fun. Take a look around and choose a topic that interests you.",
+        welcomeToggle: "Collapse welcome panel",
+        welcomeToggleOpen: "Expand welcome panel",
+        newsSummary: "News: Free software from ArtCraft and one more update",
+        newLabel: "Update",
+        headline: "Free software from ArtCraft",
+        moreNews: "+1 more",
+        newsDescription: "Software like Adobe — more information coming soon.",
+        secondHeadline: "PC game emulation in just a few days",
+        secondDescription: "Recently, AI and hackers have taken over the gaming industry.",
+        language: "Language",
+        lightMode: "Light mode",
+        darkMode: "Dark mode",
+        switchToLight: "Switch to light mode",
+        switchToDark: "Switch to dark mode",
+        menu: "Menu",
+        globeHint: "Drag to rotate · click a topic to explore",
+        title: "God's Eye",
+        categories: "Tool categories",
+        ai: "AI tools",
+        developers: "Developer and creator tools",
+        developersShort: "Dev and creator tools",
+        graphics: "Graphic design tools",
+        productivity: "Productivity",
+        collaboration: "Organization and team collaboration",
+        collaborationShort: "Teams",
+        gaming: "Gaming tools",
+        media: "Video and audio creation",
+        mediaShort: "Video and audio",
+        security: "Security and privacy",
+        securityShort: "Privacy",
+        cloud: "Cloud services",
+        cloudShort: "Cloud",
+        browser: "Web browsers",
+        browserShort: "Browsers",
+        aiIntro: "Assistants, generators, and other practical tools powered by artificial intelligence.",
+        developersIntro: "Software for development, programming, and building web projects.",
+        graphicsIntro: "Apps for image editing, digital painting, vector graphics, and 3D creation.",
+        productivityIntro: "Apps for focus, planning, and everyday work.",
+        collaborationIntro: "Tools for organizing work, communication, and shared projects.",
+        gamingIntro: "Software for playing games, creating games, and gaming communities.",
+        mediaIntro: "Tools for video editing, screen recording, live streaming, and audio editing.",
+        securityIntro: "Tools for password management, connection protection, and more private browsing.",
+        cloudIntro: "Online storage for syncing, sharing, and backing up files.",
+        browserIntro: "Browsers for everyday use, privacy, and customization.",
+        browserType: "Web browser",
+        chromeDescription: "A popular browser from Google with a wide range of extensions and account sync.",
+        edgeDescription: "Microsoft’s browser with features for work, reading, and syncing across devices.",
+        firefoxDescription: "An independent browser from Mozilla with privacy and customization features.",
+        braveDescription: "A privacy-focused browser with built-in ad and tracker blocking.",
+        operaDescription: "A browser with built-in features and options to customize your workspace.",
+        vivaldiDescription: "A customizable browser with tools for organizing tabs and workspaces.",
+        safariDescription: "Apple’s browser designed for Mac, iPhone, and iPad devices.",
+        aiAssistant: "AI assistant",
+        chatgptDescription: "An AI assistant for finding information, writing, learning, and exploring ideas.",
+        claudeDescription: "An AI assistant for working with text, analyzing documents, and solving tasks.",
+        geminiDescription: "Google’s AI assistant for questions, writing, and other everyday tasks.",
+        codeHosting: "Code hosting",
+        gitClient: "Git client",
+        versionControl: "Version control",
+        githubDescription: "A platform for hosting projects, managing versions, and collaborating on code.",
+        githubDesktopDescription: "A graphical app for managing Git projects and working with GitHub.",
+        gitDescription: "A free system for tracking file changes and collaborating on projects.",
+        workspace: "Workspace",
+        noteTaking: "Note-taking",
+        taskManagement: "Task management",
+        notionDescription: "A workspace for notes, documents, tasks, and personal projects.",
+        obsidianDescription: "A personal note-taking app for linking ideas into a connected knowledge base.",
+        todoistDescription: "A task manager for planning everyday responsibilities and projects.",
+        teamChat: "Team chat",
+        voiceAndText: "Voice and text",
+        projectManagement: "Project planning",
+        slackDescription: "A communication platform for team channels, messaging, and file sharing.",
+        discordDescription: "Spaces for communities and teams with text, voice, and video channels.",
+        trelloDescription: "A visual tool for organizing tasks and team projects with boards.",
+        gameStore: "Game store",
+        indieGames: "Indie games",
+        gameEngine: "Game engine",
+        steamDescription: "A platform for buying, managing, and playing PC games.",
+        itchioDescription: "A platform for discovering and downloading independent games and projects.",
+        godotDescription: "A free, open-source engine for creating 2D and 3D games.",
+        imageEditor: "Image editing",
+        digitalPainting: "Digital painting",
+        "3d": "3D creation",
+        gimpDescription: "A powerful editor for photo retouching, layers, and graphic design. Free and open source.",
+        kritaDescription: "A popular tool for digital painting, illustration, and comics, with brushes, layers, and animation.",
+        blenderDescription: "A complete suite for 3D modeling, animation, rendering, and game environments.",
+        vectorGraphics: "Vector graphics",
+        inkscapeDescription: "A free, open-source editor for vector illustrations, logos, and icons.",
+        interfaceDesign: "Interface design",
+        figmaDescription: "A tool for designing web and mobile interfaces and creating prototypes.",
+        videoEditing: "Video editing",
+        resolveDescription: "An advanced tool for video editing, color correction, and audio post-production.",
+        audioEditing: "Audio editing",
+        audacityDescription: "A free, open-source editor for recording and editing audio.",
+        recordingStreaming: "Recording and streaming",
+        obsDescription: "Free, open-source software for screen recording and live streaming.",
+        passwordManager: "Password manager",
+        bitwardenDescription: "A password manager for securely storing and syncing login credentials.",
+        vpn: "VPN",
+        protonVpnDescription: "A VPN service focused on privacy and protecting your internet connection.",
+        cloudStorage: "Cloud storage",
+        driveDescription: "Online storage for files and collaboration on documents.",
+        fileSync: "File synchronization",
+        dropboxDescription: "A service for storing, syncing, and sharing files.",
+        privateStorage: "Private storage",
+        protonDriveDescription: "Cloud storage focused on privacy and file protection.",
+        codeEditor: "Code editor",
+        onlineEditor: "Online editor",
+        vscodeDescription: "A free editor for HTML, CSS, and JavaScript, with extensions to make your workflow easier.",
+        codepenDescription: "A browser-based workspace for quickly experimenting with HTML, CSS, and JavaScript.",
+        officialWebsite: "Official website",
+        description: "ForgeNet is my web project about software. Discover tools for development, creativity, productivity, and play."
+      },
+      de: {
+        brandLabel: "ForgeNet — Startseite",
+        navigation: "Hauptnavigation",
+        home: "Startseite",
+        software: "Software",
+        news: "Neuigkeiten",
+        homeSubtitle: "Tools für Arbeit, Kreativität und Spaß. Entdecke nützliche Software und Online-Dienste an einem Ort.",
+        myToolsCardTitle: "Tools, die ich nutze",
+        myToolsCardDescription: "Meine persönliche Auswahl an beliebter Software und Diensten.",
+        welcomeTitle: "Willkommen auf meiner Website",
+        welcomeMessage: "Hier findest du nützliche Programme und Tools zum Gestalten, Arbeiten und Spaßhaben. Schau dich um und wähle ein Thema, das dich interessiert.",
+        welcomeToggle: "Willkommensfenster einklappen",
+        welcomeToggleOpen: "Willkommensfenster ausklappen",
+        newsSummary: "Neuigkeiten: Kostenlose Software von ArtCraft und eine weitere Meldung",
+        newLabel: "Neu",
+        headline: "Kostenlose Software von ArtCraft",
+        moreNews: "+1 weitere",
+        newsDescription: "Software wie Adobe — weitere Informationen folgen bald.",
+        secondHeadline: "PC-Spiel-Emulation schon in wenigen Tagen",
+        secondDescription: "In letzter Zeit haben KI und Hacker die Spielebranche übernommen.",
+        language: "Sprache",
+        lightMode: "Heller Modus",
+        darkMode: "Dunkler Modus",
+        switchToLight: "Zum hellen Modus wechseln",
+        switchToDark: "Zum dunklen Modus wechseln",
+        menu: "Menü",
+        globeHint: "Ziehen zum Drehen · Thema anklicken",
+        title: "Auge Gottes",
+        categories: "Tool-Kategorien",
+        ai: "KI-Tools",
+        developers: "Tools für Entwicklung und Kreative",
+        developersShort: "Kreativ und Code",
+        graphics: "Grafiktools",
+        productivity: "Produktivität",
+        collaboration: "Organisation und Teamarbeit",
+        collaborationShort: "Teams",
+        gaming: "Gaming-Tools",
+        media: "Video- und Audioproduktion",
+        mediaShort: "Video und Audio",
+        security: "Sicherheit und Datenschutz",
+        securityShort: "Datenschutz",
+        cloud: "Cloud-Dienste",
+        cloudShort: "Cloud",
+        browser: "Webbrowser",
+        browserShort: "Browser",
+        aiIntro: "Assistenten, Generatoren und weitere praktische Werkzeuge mit künstlicher Intelligenz.",
+        developersIntro: "Software für Entwicklung, Programmierung und Webprojekte.",
+        graphicsIntro: "Programme für Bildbearbeitung, digitales Malen, Vektorgrafik und 3D-Erstellung.",
+        productivityIntro: "Apps für Konzentration, Planung und den Arbeitsalltag.",
+        collaborationIntro: "Tools für Arbeitsorganisation, Kommunikation und gemeinsame Projekte.",
+        gamingIntro: "Software zum Spielen, zur Spieleentwicklung und für Gaming-Communities.",
+        mediaIntro: "Tools für Videoschnitt, Bildschirmaufnahmen, Livestreams und Audiobearbeitung.",
+        securityIntro: "Tools für Passwortverwaltung, Verbindungsschutz und privateres Surfen.",
+        cloudIntro: "Online-Speicher zum Synchronisieren, Teilen und Sichern von Dateien.",
+        browserIntro: "Browser für den Alltag, Datenschutz und individuelle Anpassung.",
+        browserType: "Webbrowser",
+        chromeDescription: "Ein beliebter Browser von Google mit vielen Erweiterungen und Kontosynchronisierung.",
+        edgeDescription: "Microsofts Browser mit Funktionen für Arbeit, Lesen und Synchronisierung zwischen Geräten.",
+        firefoxDescription: "Ein unabhängiger Browser von Mozilla mit Datenschutz- und Anpassungsfunktionen.",
+        braveDescription: "Ein datenschutzorientierter Browser mit integriertem Werbe- und Trackingschutz.",
+        operaDescription: "Ein Browser mit integrierten Funktionen und anpassbarer Arbeitsumgebung.",
+        vivaldiDescription: "Ein anpassbarer Browser mit Werkzeugen zur Organisation von Tabs und Arbeitsbereichen.",
+        safariDescription: "Apples Browser für Mac-, iPhone- und iPad-Geräte.",
+        aiAssistant: "KI-Assistent",
+        chatgptDescription: "Ein KI-Assistent zum Finden von Informationen, Schreiben, Lernen und Entwickeln von Ideen.",
+        claudeDescription: "Ein KI-Assistent für Texte, Dokumentanalysen und die Bearbeitung von Aufgaben.",
+        geminiDescription: "Googles KI-Assistent für Fragen, Texte und andere Alltagsaufgaben.",
+        codeHosting: "Code-Hosting",
+        gitClient: "Git-Client",
+        versionControl: "Versionsverwaltung",
+        githubDescription: "Eine Plattform zum Hosten von Projekten, Verwalten von Versionen und gemeinsamen Arbeiten an Code.",
+        githubDesktopDescription: "Eine grafische Anwendung zur Verwaltung von Git-Projekten und zur Arbeit mit GitHub.",
+        gitDescription: "Ein kostenloses System zum Nachverfolgen von Dateiänderungen und zur Zusammenarbeit an Projekten.",
+        workspace: "Arbeitsbereich",
+        noteTaking: "Notizen",
+        taskManagement: "Aufgabenverwaltung",
+        notionDescription: "Ein Arbeitsbereich für Notizen, Dokumente, Aufgaben und persönliche Projekte.",
+        obsidianDescription: "Eine App für persönliche Notizen, die zu einer vernetzten Wissensdatenbank verknüpft werden können.",
+        todoistDescription: "Ein Aufgabenmanager zur Planung täglicher Aufgaben und Projekte.",
+        teamChat: "Team-Chat",
+        voiceAndText: "Sprache und Text",
+        projectManagement: "Projektplanung",
+        slackDescription: "Eine Kommunikationsplattform für Teamkanäle, Nachrichten und Dateifreigabe.",
+        discordDescription: "Bereiche für Communities und Teams mit Text-, Sprach- und Videokanälen.",
+        trelloDescription: "Ein visuelles Tool zur Organisation von Aufgaben und Teamprojekten mit Boards.",
+        gameStore: "Spiele-Shop",
+        indieGames: "Indie-Spiele",
+        gameEngine: "Game-Engine",
+        steamDescription: "Eine Plattform zum Kaufen, Verwalten und Spielen von PC-Spielen.",
+        itchioDescription: "Eine Plattform zum Entdecken und Herunterladen unabhängiger Spiele und Projekte.",
+        godotDescription: "Eine kostenlose Open-Source-Engine zur Entwicklung von 2D- und 3D-Spielen.",
+        imageEditor: "Bildbearbeitung",
+        digitalPainting: "Digitales Malen",
+        "3d": "3D-Erstellung",
+        gimpDescription: "Ein leistungsstarker Editor für Fotoretusche, Ebenen und Grafikdesign. Kostenlos und Open Source.",
+        kritaDescription: "Ein beliebtes Programm für digitales Malen, Illustrationen und Comics — mit Pinseln, Ebenen und Animation.",
+        blenderDescription: "Eine umfassende Suite für 3D-Modellierung, Animation, Rendering und Spielwelten.",
+        vectorGraphics: "Vektorgrafik",
+        inkscapeDescription: "Ein kostenloser Open-Source-Editor für Vektorillustrationen, Logos und Symbole.",
+        interfaceDesign: "Interface-Design",
+        figmaDescription: "Ein Tool zum Entwerfen von Web- und mobilen Benutzeroberflächen und Prototypen.",
+        videoEditing: "Videoschnitt",
+        resolveDescription: "Ein leistungsstarkes Tool für Videoschnitt, Farbkorrektur und Audiobearbeitung.",
+        audioEditing: "Audiobearbeitung",
+        audacityDescription: "Ein kostenloser Open-Source-Editor zum Aufnehmen und Bearbeiten von Audio.",
+        recordingStreaming: "Aufnahme und Streaming",
+        obsDescription: "Kostenlose Open-Source-Software für Bildschirmaufnahmen und Livestreams.",
+        passwordManager: "Passwortmanager",
+        bitwardenDescription: "Ein Passwortmanager zum sicheren Speichern und Synchronisieren von Zugangsdaten.",
+        vpn: "VPN",
+        protonVpnDescription: "Ein VPN-Dienst mit Fokus auf Datenschutz und den Schutz der Internetverbindung.",
+        cloudStorage: "Cloud-Speicher",
+        driveDescription: "Online-Speicher für Dateien und die gemeinsame Bearbeitung von Dokumenten.",
+        fileSync: "Dateisynchronisierung",
+        dropboxDescription: "Ein Dienst zum Speichern, Synchronisieren und Teilen von Dateien.",
+        privateStorage: "Privater Speicher",
+        protonDriveDescription: "Cloud-Speicher mit Fokus auf Datenschutz und Dateischutz.",
+        codeEditor: "Code-Editor",
+        onlineEditor: "Online-Editor",
+        vscodeDescription: "Ein kostenloser Editor für HTML, CSS und JavaScript, der mit Erweiterungen angepasst werden kann.",
+        codepenDescription: "Eine browserbasierte Umgebung zum schnellen Ausprobieren von HTML, CSS und JavaScript.",
+        officialWebsite: "Offizielle Website",
+        description: "ForgeNet ist mein Webprojekt über Software. Entdecke Tools für Entwicklung, Kreativität, Produktivität und Unterhaltung."
+      }
+    };
+
+    const globeStage = document.querySelector(".globe-stage");
+    const globeCanvas = document.querySelector(".globe-canvas");
+    const globeContext = globeCanvas.getContext("2d");
+    const globeTopics = [...document.querySelectorAll(".globe-topic")].map((element, index, topics) => ({
+      element,
+      latitude: Math.asin(1 - 2 * (index + 0.5) / topics.length),
+      longitude: index * Math.PI * (3 - Math.sqrt(5)) - Math.PI
+    }));
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let globeWidth = 0;
+    let globeHeight = 0;
+    let globeYaw = -0.12;
+    let globePitch = -0.08;
+    let globeFrame = 0;
+    let pointerPosition = null;
+    let globePointerDown = false;
+    let pointerMoved = false;
+    let suppressGlobeClick = false;
+
+    function projectGlobePoint(latitude, longitude, centerX, centerY, radius) {
+      const baseX = Math.cos(latitude) * Math.sin(longitude);
+      const baseY = Math.sin(latitude);
+      const baseZ = Math.cos(latitude) * Math.cos(longitude);
+      const yawX = baseX * Math.cos(globeYaw) + baseZ * Math.sin(globeYaw);
+      const yawZ = baseZ * Math.cos(globeYaw) - baseX * Math.sin(globeYaw);
+      const pitchY = baseY * Math.cos(globePitch) - yawZ * Math.sin(globePitch);
+      const depth = baseY * Math.sin(globePitch) + yawZ * Math.cos(globePitch);
+      const perspective = 1 + depth * 0.035;
+      return {
+        x: centerX + yawX * radius * perspective,
+        y: centerY - pitchY * radius * perspective,
+        depth
+      };
+    }
+
+    function drawGlobe() {
+      const bounds = globeStage.getBoundingClientRect();
+      if (!bounds.width || !bounds.height) return;
+      globeWidth = bounds.width;
+      globeHeight = bounds.height;
+      const pixelRatio = window.devicePixelRatio || 1;
+      globeCanvas.width = Math.round(globeWidth * pixelRatio);
+      globeCanvas.height = Math.round(globeHeight * pixelRatio);
+      globeContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+      const ctx = globeContext;
+      const centerX = globeWidth / 2;
+      const centerY = globeHeight * 0.48;
+      const radius = Math.min(globeWidth * (globeWidth < 620 ? 0.32 : 0.255), globeHeight * 0.4);
+      const isLight = document.documentElement.dataset.theme === "light";
+
+      ctx.clearRect(0, 0, globeWidth, globeHeight);
+      const surface = ctx.createRadialGradient(
+        centerX - radius * 0.4, centerY - radius * 0.43, radius * 0.03,
+        centerX, centerY, radius * 1.22
+      );
+      surface.addColorStop(0, isLight ? "#d8eaff" : "#244d70");
+      surface.addColorStop(0.58, isLight ? "#8eb6de" : "#10283e");
+      surface.addColorStop(1, isLight ? "#31567a" : "#060c14");
+      ctx.fillStyle = surface;
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius - 0.5, 0, Math.PI * 2);
+      ctx.clip();
+
+      const gridColor = isLight ? "rgba(24, 66, 108, .27)" : "rgba(151, 204, 245, .3)";
+      function drawGeoLine(points, color, width, dash) {
+        ctx.beginPath();
+        let drawing = false;
+        for (const point of points) {
+          const projected = projectGlobePoint(point[0], point[1], centerX, centerY, radius);
+          if (projected.depth > 0) {
+            if (!drawing) ctx.moveTo(projected.x, projected.y);
+            else ctx.lineTo(projected.x, projected.y);
+            drawing = true;
+          } else {
+            drawing = false;
+          }
+        }
+        ctx.strokeStyle = color;
+        ctx.lineWidth = width;
+        ctx.setLineDash(dash || []);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      for (let latitude = -60; latitude <= 60; latitude += 30) {
+        const points = [];
+        for (let longitude = -180; longitude <= 180; longitude += 3) {
+          points.push([latitude * Math.PI / 180, longitude * Math.PI / 180]);
+        }
+        drawGeoLine(points, gridColor, 0.8);
+      }
+      for (let longitude = -180; longitude < 180; longitude += 30) {
+        const points = [];
+        for (let latitude = -90; latitude <= 90; latitude += 3) {
+          points.push([latitude * Math.PI / 180, longitude * Math.PI / 180]);
+        }
+        drawGeoLine(points, gridColor, 0.8);
+      }
+
+      const visiblePoints = globeTopics.map((topic) => ({
+        topic,
+        point: projectGlobePoint(topic.latitude, topic.longitude, centerX, centerY, radius)
+      }));
+
+      for (let index = 0; index < 70; index += 1) {
+        const latitude = (Math.sin(index * 78.233) * 0.5 + 0.5) * Math.PI - Math.PI / 2;
+        const longitude = (Math.sin(index * 12.9898) * 0.5 + 0.5) * Math.PI * 2 - Math.PI;
+        const point = projectGlobePoint(latitude, longitude, centerX, centerY, radius);
+        if (point.depth <= 0 || Math.sin(index * 5.19) < 0.2) continue;
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, 0.7 + (index % 3) * 0.3, 0, Math.PI * 2);
+        ctx.fillStyle = isLight ? "rgba(255,255,255,.55)" : "rgba(192,225,250,.72)";
+        ctx.fill();
+      }
+      ctx.restore();
+
+      for (const { topic, point } of visiblePoints) {
+        topic.element.style.left = `${point.x}px`;
+        topic.element.style.top = `${point.y}px`;
+        topic.element.style.opacity = point.depth > 0.12 ? "1" : "0.28";
+        topic.element.style.pointerEvents = point.depth > 0.12 ? "auto" : "none";
+        topic.element.style.zIndex = String(Math.round((point.depth + 1) * 10));
+        topic.element.setAttribute("aria-hidden", point.depth > 0.12 ? "false" : "true");
+        topic.element.tabIndex = point.depth > 0.12 ? 0 : -1;
+      }
+    }
+
+    let lastGlobeFrame = 0;
+
+    function animateGlobe(timestamp) {
+      if (!globePointerDown && !pointerPosition && !reducedMotion.matches && !document.hidden) {
+        if (lastGlobeFrame) globeYaw -= Math.min(timestamp - lastGlobeFrame, 50) * 0.00012;
+        drawGlobe();
+      }
+      lastGlobeFrame = timestamp;
+      globeFrame = window.requestAnimationFrame(animateGlobe);
+    }
+
+    function updateGlobeMotion() {
+      if (globeFrame) window.cancelAnimationFrame(globeFrame);
+      globeFrame = 0;
+      lastGlobeFrame = 0;
+      drawGlobe();
+      if (!reducedMotion.matches) globeFrame = window.requestAnimationFrame(animateGlobe);
+    }
+
+    const welcomeInfo = document.querySelector(".welcome-info");
+    const welcomeInfoToggle = document.querySelector(".welcome-info-toggle");
+    let previousScrollY = window.scrollY;
+
+    function setWelcomeInfoExpanded(expanded) {
+      welcomeInfo.classList.toggle("is-expanded", expanded);
+      welcomeInfo.classList.toggle("is-collapsed", !expanded);
+      welcomeInfoToggle.setAttribute("aria-expanded", String(expanded));
+      welcomeInfoToggle.querySelector(".visually-hidden").textContent =
+        translations[languageToggle.value][expanded ? "welcomeToggle" : "welcomeToggleOpen"];
+    }
+
+    setWelcomeInfoExpanded(true);
+    document.querySelector(".brand").addEventListener("click", () => {
+      setWelcomeInfoExpanded(true);
+      previousScrollY = window.scrollY;
+    });
+    window.addEventListener("pageshow", () => {
+      setWelcomeInfoExpanded(true);
+      previousScrollY = window.scrollY;
+    });
+
+    welcomeInfoToggle.addEventListener("click", () => {
+      setWelcomeInfoExpanded(welcomeInfo.classList.contains("is-collapsed"));
+    });
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+      const bounds = welcomeInfo.getBoundingClientRect();
+      const isVisible = bounds.bottom > 72 && bounds.top < window.innerHeight;
+      if (isVisible && currentScrollY !== previousScrollY) {
+        setWelcomeInfoExpanded(currentScrollY < previousScrollY);
+      }
+      previousScrollY = currentScrollY;
+    }, { passive: true });
+
+    document.addEventListener("visibilitychange", () => { lastGlobeFrame = 0; });
+    document.addEventListener("visibilitychange", () => { lastGlobeFrame = 0; });
+    globeStage.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0) return;
+      globePointerDown = true;
+      pointerMoved = false;
+      if (event.target.closest(".globe-topic")) return;
+      pointerPosition = { x: event.clientX, y: event.clientY };
+      globeStage.setPointerCapture(event.pointerId);
+    });
+    globeStage.addEventListener("pointermove", (event) => {
+      if (!pointerPosition) return;
+      const deltaX = event.clientX - pointerPosition.x;
+      const deltaY = event.clientY - pointerPosition.y;
+      if (Math.abs(deltaX) + Math.abs(deltaY) > 2) pointerMoved = true;
+      globeYaw += deltaX / Math.max(globeWidth, 1) * 4.2;
+      globePitch = Math.max(-1.25, Math.min(1.25, globePitch + deltaY / Math.max(globeHeight, 1) * 3.2));
+      pointerPosition = { x: event.clientX, y: event.clientY };
+      drawGlobe();
+    });
+    function releaseGlobePointer() {
+      if (pointerMoved) suppressGlobeClick = true;
+      globePointerDown = false;
+      pointerPosition = null;
+      if (pointerMoved) window.setTimeout(() => { suppressGlobeClick = false; }, 0);
+    }
+    window.addEventListener("pointerup", releaseGlobePointer);
+    window.addEventListener("pointercancel", releaseGlobePointer);
+    globeStage.addEventListener("click", (event) => {
+      const topic = event.target.closest(".globe-topic");
+      if (!topic) return;
+      if (suppressGlobeClick) {
+        event.preventDefault();
+        event.stopPropagation();
+        suppressGlobeClick = false;
+        return;
+      }
+      const target = document.querySelector(topic.getAttribute("href"));
+      if (!target) return;
+      event.preventDefault();
+      history.pushState(null, "", topic.getAttribute("href"));
+      target.scrollIntoView({
+        behavior: reducedMotion.matches ? "auto" : "smooth",
+        block: "start"
+      });
+    }, true);
+    window.addEventListener("resize", drawGlobe);
+    reducedMotion.addEventListener("change", updateGlobeMotion);
+    new ResizeObserver(drawGlobe).observe(globeStage);
+    updateGlobeMotion();
+
+    function updateLanguage(language) {
+      const text = translations[language];
+      document.documentElement.lang = language;
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        element.textContent = text[element.dataset.i18n];
+      });
+      document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+        element.setAttribute("aria-label", text[element.dataset.i18nAriaLabel]);
+      });
+      document.querySelector('meta[name="description"]').content = text.description;
+      languageToggle.value = language;
+      localStorage.setItem("forgenet-language", language);
+      setWelcomeInfoExpanded(welcomeInfo.classList.contains("is-expanded"));
+      updateThemeToggle();
+      drawGlobe();
+    }
+
+    function updateThemeToggle() {
+      const isLight = document.documentElement.dataset.theme === "light";
+      const text = translations[languageToggle.value];
+      themeToggle.textContent = isLight ? text.darkMode : text.lightMode;
+      themeToggle.setAttribute("aria-pressed", String(isLight));
+      themeToggle.setAttribute("aria-label", isLight ? text.switchToDark : text.switchToLight);
+      drawGlobe();
+    }
+
+    const root = document.documentElement;
+    root.addEventListener("animationend", (event) => {
+      if (event.animationName === "theme-wipe-down") {
+        root.classList.remove("theme-wipe");
+        root.style.removeProperty("--theme-wipe-color");
+      }
+    });
+
+    const savedLanguage = localStorage.getItem("forgenet-language");
+    updateLanguage(Object.prototype.hasOwnProperty.call(translations, savedLanguage) ? savedLanguage : "cs");
+    languageToggle.addEventListener("change", () => updateLanguage(languageToggle.value));
+    themeToggle.addEventListener("click", () => {
+      const currentTheme = root.dataset.theme === "light" ? "light" : "dark";
+      const nextTheme = currentTheme === "light" ? "dark" : "light";
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!reduceMotion) {
+        root.style.setProperty("--theme-wipe-color", currentTheme === "light" ? "#f5f7fb" : "#080b10");
+      }
+      root.dataset.theme = nextTheme;
+      if (!reduceMotion) {
+        root.classList.remove("theme-wipe");
+        void root.offsetWidth;
+        root.classList.add("theme-wipe");
+      }
+      localStorage.setItem("forgenet-theme", nextTheme);
+      updateThemeToggle();
+    });
+  </script>
+</body>
+</html>
